@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
+
+/* Smooth focus transitions */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  @apply outline-none;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Medical image viewer styles */
+.dicom-canvas {
+  @apply bg-black;
+  image-rendering: optimizeSpeed;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* Gradient backgrounds */
+.gradient-cyan {
+  @apply bg-gradient-to-br from-cyan-500 to-blue-600;
+}
+
+.gradient-slate {
+  @apply bg-gradient-to-br from-slate-800 to-slate-900;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-200 ease-out;
+}
+
+.card-hover:hover {
+  @apply shadow-lg -translate-y-0.5;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-4 py-2 bg-cyan-600 text-white rounded-lg font-medium
+         hover:bg-cyan-700 active:bg-cyan-800
+         transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium
+         hover:bg-gray-50 active:bg-gray-100
+         transition-colors duration-200;
+}
+
+/* Form input styles */
+.input-field {
+  @apply w-full px-4 py-2 border border-gray-200 rounded-lg
+         focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent
+         transition-all duration-200;
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-primary {
+  @apply bg-cyan-100 text-cyan-700;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-700;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-700;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-700;
+}
+
+/* Table styles */
+.table-header {
+  @apply bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+.table-row-hover:hover {
+  @apply bg-gray-50;
+}
+
+/* Priority colors */
+.priority-critical {
+  @apply bg-red-100 text-red-700 border border-red-200;
+}
+
+.priority-urgent {
+  @apply bg-orange-100 text-orange-700 border border-orange-200;
+}
+
+.priority-routine {
+  @apply bg-blue-100 text-blue-700 border border-blue-200;
+}
+
+/* Status colors */
+.status-pending {
+  @apply bg-gray-100 text-gray-700;
+}
+
+.status-active {
+  @apply bg-cyan-100 text-cyan-700;
+}
+
+.status-complete {
+  @apply bg-green-100 text-green-700;
+}
+
+.status-warning {
+  @apply bg-yellow-100 text-yellow-700;
+}
+
+.status-error {
+  @apply bg-red-100 text-red-700;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    @apply bg-white text-black;
+  }
+}
